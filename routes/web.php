@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/timeline', [App\Http\Controllers\TimelineController::class, 'showTimelinePage'])->name('timeline');
+Route::post('/timeline', [App\Http\Controllers\TimelineController::class, 'postTweet'])->name('timeline');
